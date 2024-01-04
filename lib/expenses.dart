@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './expenses_list.dart';
+import 'Widgets/expenses_list/expenses_list.dart';
 import 'models/expense.dart';
 
 class Expenses extends StatefulWidget {
@@ -29,8 +29,15 @@ class _ExpensesState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){},
+              icon: const Icon(Icons.add),),
+        ],
+      ),
       body: Column(
         children: [
+
           const Text('The Chart'),
           Expanded(child: ExpensesList(expenses: _registeredExpenses))
         ],
