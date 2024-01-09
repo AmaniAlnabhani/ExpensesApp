@@ -1,7 +1,7 @@
 import 'package:expense_app/models/expense.dart';
 import 'package:flutter/material.dart';
 
-class ExpensesItem extends StatelessWidget{
+class ExpensesItem extends StatelessWidget {
   const ExpensesItem(this.expense, {super.key});
   final Expense expense;
   @override
@@ -9,21 +9,27 @@ class ExpensesItem extends StatelessWidget{
     return Card(
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal:20 ,
-          vertical:16 ,
+          horizontal: 20,
+          vertical: 16,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(expense.title),
-            const SizedBox(height: 4,),
+            Text(
+              expense.title,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(
+              height: 4,
+            ),
             Row(
               children: [
                 //12.3443 show as 12.34
                 Text('\$${expense.amount.toStringAsFixed(2)}'),
                 const Spacer(),
-                 Row(
+                Row(
                   children: [
-                     Icon(categoryIcons[expense.category]),
+                    Icon(categoryIcons[expense.category]),
                     const SizedBox(width: 8),
                     Text(expense.formattedDate),
                   ],
